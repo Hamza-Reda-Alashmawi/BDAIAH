@@ -30,7 +30,7 @@ body {
 /* --- Updated Responsive Logic (Phones & Tablets) --- */
 @media (max-width: 768px) {
     .navbar { height: auto; padding: 20px 0; }
-    .nav-container { flex-direction: column; gap: 15px; }
+    .nav-container { gap: 15px; }
     .grid-2, .services-ui-grid { grid-template-columns: 1fr; }
     .hero-inner { flex-direction: column; text-align: center; }
     .hero-text h1 { font-size: 2.2rem; }
