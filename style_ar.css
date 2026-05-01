@@ -2,37 +2,141 @@
     --red: #A61A1A;
     --black: #121212;
     --white: #FFFFFF;
-    --brutalist-shadow: -10px 10px 0px var(--black); /* Flipped */
+    --gray: #F4F4F4;
+    --brutalist-shadow: -10px 10px 0px var(--black); /* Flipped shadow for RTL */
 }
 
+/* Change font to Cairo for better Arabic legibility */
 body { 
+    font-family: 'Cairo', sans-serif; 
     direction: rtl; 
     text-align: right; 
-    font-family: 'Cairo', sans-serif; 
 }
 
-/* --- Language Button Styling --- */
-.lang-toggle-wrapper {
-    display: flex;
-    gap: 10px;
-    margin: 0 20px;
+/* Flip the hero image shadow for RTL */
+.hero-image img { 
+    box-shadow: -20px 20px 0px var(--black); 
 }
 
-.lang-btn {
-    text-decoration: none;
-    color: var(--white);
+/* Adjust secondary button margin for RTL */
+.btn-secondary { 
+    margin-right: 20px; 
+    margin-left: 0; 
+}
+
+/* Flip hover transformation for RTL */
+.service-ui-card:hover { 
+    transform: translate(5px, -5px); 
+    box-shadow: -15px 15px 0px var(--red); 
+}
+
+/* Center titles for a professional look */
+.center-title {
+    text-align: center;
+    font-size: 2.5rem;
     font-weight: 900;
-    border: 2px solid var(--white);
-    padding: 5px 10px;
-    font-size: 0.8rem;
 }
 
-/* --- Updated Responsive Logic (Phones & Tablets) --- */
+.logo{
+    color: #FFFFFF;
+
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* TABLET VIEW (Screens smaller than 1024px) */
+@media (max-width: 1024px) {
+    .hero-text h1 {
+        font-size: 3.5rem; /* Scale down the large heading */
+    }
+
+    .services-ui-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        gap: 20px;
+    }
+
+    .grid-2 {
+        gap: 30px;
+    }
+}
+
+/* MOBILE VIEW (Screens smaller than 768px) */
 @media (max-width: 768px) {
-    .navbar { height: auto; padding: 20px 0; }
-    .nav-container { gap: 15px; }
-    .grid-2, .services-ui-grid { grid-template-columns: 1fr; }
-    .hero-inner { flex-direction: column; text-align: center; }
-    .hero-text h1 { font-size: 2.2rem; }
-    .hero-image img { box-shadow: -10px 10px 0px var(--black); }
+    /* Stack the Navigation */
+    .navbar {
+        height: auto;
+        padding: 15px 0;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-menu {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Stack the Hero section */
+    .hero-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .btn-secondary {
+        display: block;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+        box-shadow: 10px 10px 0px var(--black); /* Reduced shadow size for mobile */
+    }
+
+    /* Stack Service Cards into 1 column */
+    .services-ui-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-ui-card {
+        padding: 30px 20px;
+        box-shadow: 6px 6px 0px var(--black); /* Scaled down brutalist effect */
+    }
+
+    /* Stack Founder and Map sections */
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .founder-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .stat-card strong {
+        font-size: 2rem;
+    }
+}
+
+/* SMALL PHONE VIEW (Screens smaller than 480px) */
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .founder-stats {
+        grid-template-columns: 1fr; /* Stack stats on very small phones */
+    }
+
+    .nav-menu {
+        font-size: 0.7rem;
+    }
 }
