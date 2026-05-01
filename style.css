@@ -1,0 +1,142 @@
+:root {
+    --red: #A61A1A;
+    --black: #121212;
+    --white: #FFFFFF;
+    --gray: #F4F4F4;
+    --brutalist-shadow: 10px 10px 0px var(--black);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--black); line-height: 1.6; }
+
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+
+/* NAVBAR */
+.navbar { position: sticky; top: 0; background: var(--red); height: 90px; border-bottom: 4px solid var(--black); z-index: 9999; display: flex; align-items: center; }
+.nav-container { width: 90%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { height: 60px; filter: brightness(0) invert(1); }
+.nav-menu { display: flex; list-style: none; gap: 25px; }
+.nav-menu a { color: var(--white); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; }
+.nav-cta { background: var(--black); padding: 10px 20px; border: 2px solid var(--white); }
+
+/* HERO SECTION */
+.hero { background: var(--red); color: var(--white); padding: 100px 0; border-bottom: 4px solid var(--black); }
+.hero-inner { width: 90%; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 40px; }
+.hero-text h1 { font-size: 4.5rem; line-height: 1; margin: 20px 0; font-weight: 900; }
+.badge { background: var(--black); padding: 5px 15px; font-weight: bold; font-size: 0.8rem; }
+.hero-image img { width: 100%; max-width: 500px; border: 5px solid var(--black); box-shadow: 20px 20px 0px var(--black); }
+.btn-primary { background: var(--black); color: white; padding: 15px 30px; text-decoration: none; font-weight: 900; border: 3px solid var(--black); display: inline-block; }
+.btn-secondary { color: white; margin-left: 20px; text-decoration: underline; font-weight: bold; }
+
+/* SERVICES GRID */
+.services-section { padding: 100px 0; background: var(--white); }
+.services-ui-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+.service-ui-card { background: var(--white); border: 4px solid var(--black); padding: 40px; box-shadow: var(--brutalist-shadow); transition: 0.3s; }
+.service-ui-card:hover { transform: translate(-5px, -5px); box-shadow: 15px 15px 0px var(--red); }
+.card-icon { font-size: 2.5rem; margin-bottom: 20px; }
+.service-ui-card h4 { font-size: 1.5rem; margin-bottom: 10px; color: var(--red); }
+
+/* FOUNDER & MAP SECTION */
+.founder-section { background: var(--gray); padding: 100px 0; border-top: 4px solid var(--black); border-bottom: 4px solid var(--black); }
+.section-tag { color: var(--red); font-weight: 900; letter-spacing: 2px; font-size: 0.9rem; }
+.stat-card { background: var(--red); color: white; padding: 30px; border: 4px solid var(--black); margin-bottom: 20px; text-align: center; }
+.stat-card strong { font-size: 3rem; display: block; }
+
+.map-section { padding: 100px 0; }
+.map-box { border: 4px solid var(--black); margin-top: 20px; box-shadow: var(--brutalist-shadow); }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .grid-2, .services-ui-grid { grid-template-columns: 1fr; }
+    .hero-text h1 { font-size: 2.5rem; }
+    .hero-inner { flex-direction: column; text-align: center; }
+}
+
+.logo{
+    color: #FFFFFF;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* TABLET VIEW (Screens smaller than 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        width: 92%; /* Give a bit more breathing room on sides */
+    }
+
+    .hero-text h1 {
+        font-size: 3.5rem; /* Shrink title slightly */
+    }
+
+    .services-ui-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns instead of 3 */
+        gap: 20px;
+    }
+}
+
+/* MOBILE VIEW (Screens smaller than 768px) */
+@media (max-width: 768px) {
+    /* Stack the Hero section vertically */
+    .hero-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+
+    .hero-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .btn-secondary {
+        margin-right: 0; /* Remove the side margin on mobile */
+    }
+
+    .hero-image img {
+        max-width: 100%;
+        box-shadow: -10px 10px 0px var(--black); /* Smaller shadow for smaller screens */
+    }
+
+    /* Stack the Founder and Map sections */
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Stack Services into a single column */
+    .services-ui-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Navigation - stack menu items or hide them */
+    .nav-menu {
+        display: none; /* Usually, you'd implement a hamburger menu here */
+    }
+    
+    .nav-container {
+        justify-content: center;
+    }
+
+    .stat-card strong {
+        font-size: 2.5rem;
+    }
+}
+
+/* SMALL PHONE VIEW (Screens smaller than 480px) */
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    
+    .service-ui-card {
+        padding: 20px;
+        box-shadow: -6px 6px 0px var(--black); /* Even smaller shadow */
+    }
+}
